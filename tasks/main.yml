@@ -43,6 +43,6 @@
   pip:
     name: docker-compose
     state: present
-    version: "{{ docker_py_version }}"
+    version: "{{ docker_compose_version }}"
   become: yes
   when: docker_compose_version != ""
