@@ -40,3 +40,10 @@
   shell: "chmod +x /usr/local/bin/docker-compose"
   become: yes
   when: docker_compose_version != ""
+- name: Install Pip Docker
+  pip:
+    name: docker
+    state: present
+    version: "{{ docker_py_version }}"
+  become: yes
+  when: docker_py_version != ""
