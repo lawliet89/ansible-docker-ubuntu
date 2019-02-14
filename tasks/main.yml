@@ -37,6 +37,7 @@
     name: docker
     state: present
     version: "{{ docker_py_version }}"
+    executable: "{{ pip_executable | default(omit) }}"
   become: yes
   when: docker_py_version != ""
 - name: Install Docker Compose
@@ -44,5 +45,6 @@
     name: docker-compose
     state: present
     version: "{{ docker_compose_version }}"
+    executable: "{{ pip_executable | default(omit) }}"
   become: yes
   when: docker_compose_version != ""
