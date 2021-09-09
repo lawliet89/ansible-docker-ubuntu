@@ -1,13 +1,12 @@
 ---
 - name: Check dependencies
   apt:
-    name: "{{ item }}"
+    pkg:
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - software-properties-common
     state: latest
-  with_items:
-    - apt-transport-https
-    - ca-certificates
-    - curl
-    - software-properties-common
   become: yes
 - name: Add Docker Key
   apt_key:
